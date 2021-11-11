@@ -1,8 +1,8 @@
 .cars-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
-  margin: 10px;
+  grid-gap: 8px;
+  margin: 15px;
 }
 
 @media screen and (max-width: 692px) {

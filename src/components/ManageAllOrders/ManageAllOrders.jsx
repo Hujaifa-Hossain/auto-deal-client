@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../Hooks/useAuth";
 
-const MyOrder = () => {
+const ManageAllOrders = () => {
   const { user } = useAuth();
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`https://shielded-brushlands-06342.herokuapp.com/myOrder/${user?.email}`)
+    fetch(`http://localhost:5000/orders`)
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
-  }, [user?.email]);
+  }, []);
 
   const handleCancel = (_id) => {
-    fetch(`https://shielded-brushlands-06342.herokuapp.com/delete/${_id}`, {
+    fetch(`http://localhost:5000/delete/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -26,9 +26,8 @@ const MyOrder = () => {
         }
       });
   };
-
   return (
-    <div className="text-center my-5">
+    <div>
       <table className="table container table-dark table-stripe">
         <thead className="mx-auto">
           <tr>
@@ -65,4 +64,4 @@ const MyOrder = () => {
   );
 };
 
-export default MyOrder;
+export default ManageAllOrders;

@@ -54,6 +54,19 @@ const DashBoard = () => {
               ) : (
                 <li></li>
               )}
+              {user?.email ? (
+                <li className="nav-item">
+                  <Link
+                    className="nav-link active"
+                    aria-current="page"
+                    to="/manageAll"
+                  >
+                    Manage All Orders
+                  </Link>
+                </li>
+              ) : (
+                <li></li>
+              )}
             </ul>
           </div>
       </nav>

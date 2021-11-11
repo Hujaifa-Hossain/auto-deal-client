@@ -16,6 +16,7 @@ import MyOrder from "./components/MyOrder/MyOrder";
 import DashBoard from "./components/Dashboard/Dashboard";
 import Pay from "./components/Pay/Pay";
 import Manage from "./components/ManageProducts/ManageProducts";
+import ManageAllOrders from "./components/ManageAllOrders/ManageAllOrders";
 
 function App() {
   return (
@@ -59,6 +60,9 @@ function App() {
             </Route>
             <Route path="/manageProducts">
               <Manage></Manage>
+            </Route>
+            <Route path="/manageAll">
+              <ManageAllOrders></ManageAllOrders>
             </Route>
             <Route path="*">
               <NotFound></NotFound>

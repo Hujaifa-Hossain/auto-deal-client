@@ -29,25 +29,25 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/explore">
-              Explore
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                to="/explore"
+              >
+                Explore
               </Link>
             </li>
-            <li className="nav-item">
+
+            {user?.email ? (
+              <li className="nav-item">
                 <Link
                   className="nav-link active"
                   aria-current="page"
-                  to="/addCar"
+                  to="/dashboard"
                 >
-                  Add Car
+                  Dashboard
                 </Link>
               </li>
-            {user?.email ? (
-              <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/dashboard">
-              Dashboard
-              </Link>
-            </li>
             ) : (
               <li></li>
             )}

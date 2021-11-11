@@ -6,13 +6,13 @@ const ManageAllOrders = () => {
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders`)
+    fetch(`https://shielded-brushlands-06342.herokuapp.com/orders`)
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, []);
 
   const handleCancel = (_id) => {
-    fetch(`http://localhost:5000/delete/${_id}`, {
+    fetch(`https://shielded-brushlands-06342.herokuapp.com/delete/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

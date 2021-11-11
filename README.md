@@ -4,7 +4,7 @@ Live Site: https://final-assignment-11c2e.web.app/
 
 ## Available Technology
 
-React, Bootstrap, Firebase.
+React, react-router, Bootstrap, Firebase.
 
 ### 5 main features about this website
 

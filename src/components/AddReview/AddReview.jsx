@@ -24,7 +24,7 @@ const AddReview = () => {
   };
   return (
     <div className="container my-5">
-      <h5 className="text-center my-3">A Feedback Will Be Appriciated!</h5>
+      <h5 className="text-center my-3">A Feedback Will Be <span className="text-warning">Appriciated</span> </h5>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="p-2 my-1 w-100"

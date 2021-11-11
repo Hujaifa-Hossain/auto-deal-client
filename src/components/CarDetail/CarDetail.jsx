@@ -7,6 +7,7 @@ const CarDetail = () => {
   const { _id } = useParams();
   const { user } = useAuth();
   const [isUpdate, setIsUpdated] = useState(null);
+  console.log(isUpdate);
 
   const [cars, setCars] = useState({});
   useEffect(() => {
@@ -50,8 +51,11 @@ const CarDetail = () => {
                 <img src={car?.image} className="card-img-top" alt="..." />
                 <div className="card-body">
                   <h5 className="card-title">{car?.name}</h5>
-                  <p className="card-text">{car?.description.slice(0,120)}</p>
-                  <p className="card-text">Price: ${car?.price} <span className="text-warning">10% discount</span></p>
+                  <p className="card-text">{car?.description.slice(0, 120)}</p>
+                  <p className="card-text">
+                    Price: ${car?.price}{" "}
+                    <span className="text-warning"> with 10% discount</span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -62,26 +66,33 @@ const CarDetail = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 {/* register your input into the hook by invoking the "register" function */}
                 <input
-                  className="p-2 m-2"
+                  className="p-2 px-4 m-2"
                   placeholder="Enter your name"
                   defaultValue={user?.displayName}
                   {...register("user", { required: true })}
                 />
                 <input
-                  className="p-2 m-2"
+                  className="p-2 px-4 m-2"
                   placeholder="Enter your email"
                   defaultValue={user?.email}
                   {...register("email", { required: true })}
                 />
                 <input
-                  className="p-2 m-2"
+                  className="p-2 px-4 m-2"
                   type="text"
                   placeholder="Enter your address"
                   {...register("address", { required: true })}
                   required
                 />
                 <input
-                  className="p-2 m-2"
+                  className="p-2 px-4 m-2"
+                  type="text"
+                  placeholder="Give phone number"
+                  {...register("phone", { required: true })}
+                  required
+                />
+                <input
+                  className="p-2 px-4 m-2"
                   placeholder="Enter your car Name"
                   defaultValue={car?.name}
                   {...register("car", { required: true })}
@@ -90,7 +101,7 @@ const CarDetail = () => {
                 {errors.exampleRequired && <span>This field is required</span>}
                 <br />
                 <input
-                  className="btn btn-warning py-2 px-5 m-2"
+                  className="btn btn-warning py-2 px-5 m-3"
                   type="submit"
                   value="PLACE ORDER"
                 />

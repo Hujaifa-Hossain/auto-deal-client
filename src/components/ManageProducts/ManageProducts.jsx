@@ -1,53 +1,53 @@
 import React, { useEffect, useState } from "react";
-import useAuth from "../Hooks/useAuth";
 
-const MyOrder = () => {
-  const { user } = useAuth();
-  const [myOrders, setMyOrders] = useState([]);
+const Manage = () => {
+  const [manageProducts, setManageProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://shielded-brushlands-06342.herokuapp.com/myOrder/${user?.email}`)
+    fetch(`https://shielded-brushlands-06342.herokuapp.com/car`)
       .then((res) => res.json())
-      .then((data) => setMyOrders(data));
-  }, [user?.email]);
+      .then((data) => setManageProducts(data));
+  }, []);
 
   const handleCancel = (_id) => {
-    fetch(`https://shielded-brushlands-06342.herokuapp.com/delete/${_id}`, {
+    fetch(`https://shielded-brushlands-06342.herokuapp.com/car/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount === 1) {
-          const remainingOrders = myOrders.filter((order) => order._id !== _id);
-          setMyOrders(remainingOrders);
+          const remainingOrders = manageProducts.filter(
+            (order) => order._id !== _id
+          );
+          setManageProducts(remainingOrders);
           alert("Want to delete?");
         } else {
           alert("Something is wrong");
         }
       });
   };
-
   return (
     <div className="text-center my-3">
+      <p>{manageProducts.length} products found to manage</p>
       <table className="table container table-dark table-stripe">
         <thead className="mx-auto">
           <tr>
-          <th scope="col">Car</th>
-            <th scope="col">Name</th>
-            
-            <th scope="col">Address</th>
+            <th scope="col">Car</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
             <th scope="col">Cancel</th>
           </tr>
         </thead>
         <tbody>
-          {myOrders?.map((i) => {
+          {manageProducts?.map((i) => {
             // const { _id, user, email } = order;
-
             return (
               <tr key={i?._id}>
-                <td>{i?.car}</td>
-                <td>{i?.user}</td>
-                <td>{i?.address}</td>
+                <td>{i.name}</td>
+
+                <td>${i?.price}</td>
+                <td>{i?.description.slice(0,30)}</td>
+                
                 <td>
                   <button
                     onClick={() => handleCancel(i?._id)}
@@ -65,4 +65,4 @@ const MyOrder = () => {
   );
 };
 
-export default MyOrder;
+export default Manage;

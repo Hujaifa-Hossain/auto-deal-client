@@ -15,6 +15,7 @@ import AddReview from "./components/AddReview/AddReview";
 import MyOrder from "./components/MyOrder/MyOrder";
 import DashBoard from "./components/Dashboard/Dashboard";
 import Pay from "./components/Pay/Pay";
+import Manage from "./components/ManageProducts/ManageProducts";
 
 function App() {
   return (
@@ -35,7 +36,6 @@ function App() {
             <Route path="/explore">
               <Explore></Explore>
             </Route>
-
             <Route path="/login">
               <Login></Login>
             </Route>
@@ -56,6 +56,9 @@ function App() {
             </Route>
             <Route path="/pay">
               <Pay></Pay>
+            </Route>
+            <Route path="/manageProducts">
+              <Manage></Manage>
             </Route>
             <Route path="*">
               <NotFound></NotFound>

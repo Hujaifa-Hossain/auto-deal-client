@@ -2,7 +2,7 @@ import React from "react";
 import Rating from "react-rating";
 
 const SingleReview = (props) => {
-  const { _id, user, email, review, stars } = props.review;
+  const { user, email, review, stars } = props.review;
   return (
     <div>
       <div class="card bg-dark border-light">

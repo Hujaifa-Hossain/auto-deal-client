@@ -15,14 +15,16 @@ const Manage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.deletedCount === 1) {
-          const remainingOrders = manageProducts.filter(
-            (order) => order._id !== _id
-          );
-          setManageProducts(remainingOrders);
-          alert("Want to delete?");
-        } else {
-          alert("Something is wrong");
+        const proceed = window.confirm(
+          "Stop! are you sure you want to delete?"
+        );
+        if (proceed) {
+          if (data.deletedCount === 1) {
+            const remainingOrders = manageProducts.filter(
+              (order) => order._id !== _id
+            );
+            setManageProducts(remainingOrders);
+          }
         }
       });
   };
@@ -46,8 +48,8 @@ const Manage = () => {
                 <td>{i.name}</td>
 
                 <td>${i?.price}</td>
-                <td>{i?.description.slice(0,30)}</td>
-                
+                <td>{i?.description.slice(0, 30)}</td>
+
                 <td>
                   <button
                     onClick={() => handleCancel(i?._id)}

@@ -18,13 +18,14 @@ const ManageAllOrders = () => {
         const proceed = window.confirm(
           "Stop! are you sure you want to delete?"
         );
-        if(proceed) {
+        if (proceed) {
           if (data.deletedCount === 1) {
             const remainingOrders = myOrders.filter(
               (order) => order._id !== _id
             );
             setMyOrders(remainingOrders);
-          } }
+          }
+        }
       });
   };
   return (
@@ -32,9 +33,9 @@ const ManageAllOrders = () => {
       <table className="table container table-dark table-stripe">
         <thead className="mx-auto">
           <tr>
-          <th scope="col">Car</th>
+            <th scope="col">Car</th>
             <th scope="col">Name</th>
-            
+
             <th scope="col">Address</th>
             <th scope="col">Cancel</th>
           </tr>

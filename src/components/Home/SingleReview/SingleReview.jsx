@@ -5,14 +5,14 @@ const SingleReview = (props) => {
   const { user, email, review, stars } = props.review;
   return (
     <div>
-      <div class="card bg-dark border-light">
-        <div class="card-body">
-          <p class="card-text m-0">{user}</p>
-          <p class="card-text">
+      <div className="card bg-dark border-light">
+        <div className="card-body">
+          <p className="card-text m-0">{user}</p>
+          <p className="card-text">
             <small>{email}</small>
           </p>
-          <p class="card-text">{review}</p>
-          <p class="card-text">
+          <p className="card-text">{review}</p>
+          <p className="card-text">
             {stars} Star by{" "}
             <small
               className="

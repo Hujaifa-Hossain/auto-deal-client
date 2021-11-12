@@ -48,14 +48,11 @@ const useFirebase = () => {
       displayName: name,
     })
       .then(() => {
-        const newUser = { ...user, displayName: name }; // recommend
+        const newUser = { ...user, displayName: name };
         setUser(newUser);
-
-        // ...
       })
       .catch((error) => {
         // An error occurred
-        // ...
       });
   };
 

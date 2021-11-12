@@ -17,6 +17,7 @@ import DashBoard from "./components/Dashboard/Dashboard";
 import Pay from "./components/Pay/Pay";
 import Manage from "./components/ManageProducts/ManageProducts";
 import ManageAllOrders from "./components/ManageAllOrders/ManageAllOrders";
+import MakeAdmin from "./components/MakeAdmin/MakeAdmin";
 
 function App() {
   return (
@@ -30,9 +31,6 @@ function App() {
             </Route>
             <Route path="/home">
               <Home></Home>
-            </Route>
-            <Route path="/addCar">
-              <AddCar></AddCar>
             </Route>
             <Route path="/explore">
               <Explore></Explore>
@@ -63,6 +61,12 @@ function App() {
             </Route>
             <Route path="/manageAll">
               <ManageAllOrders></ManageAllOrders>
+            </Route>
+            <Route path="/addCar">
+              <AddCar></AddCar>
+            </Route>
+            <Route path="/makeAdmin">
+              <MakeAdmin></MakeAdmin>
             </Route>
             <Route path="*">
               <NotFound></NotFound>

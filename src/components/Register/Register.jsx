@@ -38,6 +38,7 @@ const Register = () => {
     e.preventDefault();
     createAccountWithGoogle(email, password)
       .then((res) => {
+        hanldeUserInfoRegister(res.user.email);
         setIsLoading(true);
         updateName(name);
         setUser(res.user);
@@ -51,6 +52,16 @@ const Register = () => {
       .finally(() => {
         setIsLoading(false);
       });
+  };
+
+  const hanldeUserInfoRegister = (email) => {
+    fetch("http://localhost:5000/addUserInfo", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email }),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
   };
 
   const handleGoogleLogin = () => {
@@ -72,7 +83,7 @@ const Register = () => {
         <div className="col-lg-6">
           <div className="my-3 d-flex justify-content-center">
             <div>
-              <p className="my-3">Please Register</p>
+              <p className="my-3">Please Register first</p>
               <form onSubmit={handleRegistration}>
                 <input
                   className="my-1"
@@ -121,6 +132,8 @@ const Register = () => {
                 {" "}
                 Signed Up? <Link to="/login">Please Login</Link>
               </p>
+              <br />
+              <p className="text-info">Note: Please login after <br /> successful registration</p>
             </div>
           </div>
         </div>

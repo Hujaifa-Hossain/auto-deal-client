@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 
 const DashBoard = () => {
   const { user } = useAuth();
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/checkAdmin/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data[0]?.role === "admin") {
+          setIsAdmin(true);
+        } else {
+          setIsAdmin(false);
+        }
+      });
+  }, [user?.email]);
+  
+  console.log(isAdmin);
+
+
   return (
     <div className="vh-100">
       <nav className="navbar navbar-expand-lg navbar-dark">
@@ -40,7 +57,7 @@ const DashBoard = () => {
             ) : (
               <li></li>
             )}
-            {user?.email ? (
+            {isAdmin? (
               <li className="nav-item">
                 <Link
                   className="nav-link active"
@@ -53,7 +70,7 @@ const DashBoard = () => {
             ) : (
               <li></li>
             )}
-            {user?.email ? (
+            {isAdmin? (
               <li className="nav-item">
                 <Link
                   className="nav-link active"
@@ -66,7 +83,7 @@ const DashBoard = () => {
             ) : (
               <li></li>
             )}
-            {user?.email ? (
+            {isAdmin? (
               <li className="nav-item">
                 <Link
                   className="nav-link active"
@@ -74,6 +91,19 @@ const DashBoard = () => {
                   to="/addCar"
                 >
                   Add A Car
+                </Link>
+              </li>
+            ) : (
+              <li></li>
+            )}
+            {isAdmin? (
+              <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/makeAdmin"
+                >
+                  Make Admin
                 </Link>
               </li>
             ) : (

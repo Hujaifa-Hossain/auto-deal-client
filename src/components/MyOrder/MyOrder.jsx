@@ -17,12 +17,17 @@ const MyOrder = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.deletedCount === 1) {
-          const remainingOrders = myOrders.filter((order) => order._id !== _id);
-          setMyOrders(remainingOrders);
-          alert("Want to delete?");
-        } else {
-          alert("Something is wrong");
+        // 
+        const proceed = window.confirm(
+          "Stop! are you sure you want to delete?"
+        );
+        if(proceed) {
+          if (data.deletedCount === 1) {
+            const remainingOrders = myOrders.filter(
+              (order) => order._id !== _id
+            );
+            setMyOrders(remainingOrders);
+          } 
         }
       });
   };
@@ -41,8 +46,6 @@ const MyOrder = () => {
         </thead>
         <tbody>
           {myOrders?.map((i) => {
-            // const { _id, user, email } = order;
-
             return (
               <tr key={i?._id}>
                 <td>{i?.car}</td>

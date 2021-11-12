@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import useAuth from "../Hooks/useAuth";
 
 const ManageAllOrders = () => {
-  const { user } = useAuth();
   const [myOrders, setMyOrders] = useState([]);
 
   useEffect(() => {
@@ -17,13 +15,16 @@ const ManageAllOrders = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.deletedCount === 1) {
-          const remainingOrders = myOrders.filter((order) => order._id !== _id);
-          setMyOrders(remainingOrders);
-          alert("Want to delete?");
-        } else {
-          alert("Something is wrong");
-        }
+        const proceed = window.confirm(
+          "Stop! are you sure you want to delete?"
+        );
+        if(proceed) {
+          if (data.deletedCount === 1) {
+            const remainingOrders = myOrders.filter(
+              (order) => order._id !== _id
+            );
+            setMyOrders(remainingOrders);
+          } }
       });
   };
   return (

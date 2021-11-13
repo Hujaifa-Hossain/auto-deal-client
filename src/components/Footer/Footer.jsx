@@ -102,7 +102,6 @@ const Footer = () => {
           </div>
           <div className="col-lg-4">
             <div className="text-center">
-              <p>You can pay with</p>
               <img
                 className="img-fluid h-100"
                 src="https://www.sslwireless.com/wp-content/uploads/2020/05/Payment-gateway-service.jpg"
@@ -112,7 +111,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="text-white text-center mt-3">
-          Copyright © 2021 Traveller
+          Copyright © 2021 Auto Deal
         </p>
       </div>
     </div>

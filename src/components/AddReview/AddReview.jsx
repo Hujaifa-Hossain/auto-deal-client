@@ -24,7 +24,9 @@ const AddReview = () => {
   };
   return (
     <div className="container my-5">
-      <h5 className="text-center my-3">A Feedback Will Be <span className="text-warning">Appriciated</span> </h5>
+      <h5 className="text-center my-3">
+        A Feedback Will Be <span className="text-warning">Appriciated</span>{" "}
+      </h5>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="p-2 my-1 w-100"
@@ -48,7 +50,7 @@ const AddReview = () => {
           className="p-2 my-1 w-100"
           type="number"
           placeholder="Give a rating between 0 to 5"
-          {...register("stars", { min: 0, max: 5 , required: true })}
+          {...register("stars", { min: 0, max: 5, required: true })}
         />
         {errors.exampleRequired && <span>This field is required</span>}
         <p className="w-50 m-auto p-2">

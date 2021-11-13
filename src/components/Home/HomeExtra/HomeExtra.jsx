@@ -13,22 +13,20 @@ const HomeExtra = () => {
             <div class="container overflow-hidden">
               <div class="row gx-5">
                 <div class="col-lg-6">
-                  <div class="p-3 bg-warning">
-                    <h3 className="text-dark">Are You looking for a car?</h3>
+                  <div class="p-1 bg-warning">
+                    
                     <p>
                       Our cars are delivered fully-registered with all
-                      requirements completed. We’ll deliver your car wherever
-                      you want in required time for you.
+                      requirements completed.
                     </p>
                   </div>
                 </div>
                 <div class="col-lg-6">
-                  <div class="p-3 bg-danger">
-                    <h3 className="text-dark">Do You want to sell a car?</h3>
+                  <div class="p-1 bg-danger">
+                   
                     <p>
                       What’s your car worth? Receive the absolute best value for
-                      your trade-in vehicle. We even handle all paperwork.
-                      Schedule your appointment today!
+                      your trade-in vehicle.
                     </p>
                   </div>
                 </div>

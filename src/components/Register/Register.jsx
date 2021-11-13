@@ -133,7 +133,9 @@ const Register = () => {
                 Signed Up? <Link to="/login">Please Login</Link>
               </p>
               <br />
-              <p className="text-info">Note: Please login after <br /> successful registration</p>
+              <p className="text-info">
+                Note: Please login after <br /> successful registration
+              </p>
             </div>
           </div>
         </div>

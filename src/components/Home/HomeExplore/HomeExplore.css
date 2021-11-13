@@ -5,8 +5,21 @@
   margin: 15px;
 }
 
+.dashboard-link {
+  display: flex;
+}
+
+.dashboard-link li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 @media screen and (max-width: 692px) {
   .cars-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .dashboard-link {
+    display: inline;
   }
 }

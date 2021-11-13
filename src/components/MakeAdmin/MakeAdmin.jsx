@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { useForm } from "react-hook-form";
 
 const MakeAdmin = () => {
-  const { register, handleSubmit, reset} = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
     fetch("https://shielded-brushlands-06342.herokuapp.com/makeAdmin", {

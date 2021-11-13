@@ -6,6 +6,7 @@ import useAuth from "../Hooks/useAuth";
 const CarDetail = () => {
   const { _id } = useParams();
   const { user } = useAuth();
+  const [message, setMessage] = useState("");
   const [isUpdate, setIsUpdated] = useState(null);
   console.log(isUpdate);
 
@@ -24,6 +25,7 @@ const CarDetail = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    data.status = "Pending";
     fetch(`https://shielded-brushlands-06342.herokuapp.com/shipment/${_id}`, {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -38,12 +40,16 @@ const CarDetail = () => {
         }
       });
     console.log(data);
+    setMessage(
+      `Thank you ${user?.displayName}, your order placed successfully.`
+    );
     reset();
   };
   const car = cars[0];
   return (
     <div>
       <div className="container overflow-hidden">
+        <h6 className="text-center my-2">{message}</h6>
         <div className="row gx-5">
           <div className="col-lg-6">
             <div className="p-3">
@@ -63,6 +69,7 @@ const CarDetail = () => {
           <div className="col-lg-6">
             <div className="p-3">
               <h3>Shipment Form</h3>
+
               <form onSubmit={handleSubmit(onSubmit)}>
                 {/* register your input into the hook by invoking the "register" function */}
                 <input

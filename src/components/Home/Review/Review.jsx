@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import SingleReview from '../SingleReview/SingleReview';
+import React, { useEffect, useState } from "react";
+import SingleReview from "../SingleReview/SingleReview";
 const Review = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
@@ -9,13 +9,12 @@ const Review = () => {
   }, []);
   return (
     <div>
-      <h3 className="text-center my-4">What Customers <span className="text-warning">Say</span></h3>
+      <h3 className="text-center my-4">
+        What Customers <span className="text-warning">Say</span>
+      </h3>
       <div className="cars-container">
         {reviews.map((review) => (
-          <SingleReview
-            key={review._id}
-            review={review}
-          ></SingleReview>
+          <SingleReview key={review._id} review={review}></SingleReview>
         ))}
       </div>
     </div>

@@ -41,6 +41,7 @@ const MyOrder = () => {
             <th scope="col">Name</th>
             
             <th scope="col">Address</th>
+            <th scope="col">Status</th>
             <th scope="col">Cancel</th>
           </tr>
         </thead>
@@ -51,6 +52,7 @@ const MyOrder = () => {
                 <td>{i?.car}</td>
                 <td>{i?.user}</td>
                 <td>{i?.address}</td>
+                <td>{i?.status}</td>
                 <td>
                   <button
                     onClick={() => handleCancel(i?._id)}

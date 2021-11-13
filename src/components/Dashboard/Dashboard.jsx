@@ -25,7 +25,7 @@ const DashBoard = () => {
   return (
     <div className="vh-100">
       <ul className="dashboard-link">
-        {user?.email ? (
+        {!isAdmin ? (
           <li className="nav-link">
             <Link className="nav-link active text-white" to="/myOrder">
               My Order
@@ -34,7 +34,7 @@ const DashBoard = () => {
         ) : (
           <li></li>
         )}
-        {user?.email ? (
+        {!isAdmin ? (
           <li className="nav-link">
             <Link className="nav-link active text-white" to="/review">
               Review
@@ -43,7 +43,7 @@ const DashBoard = () => {
         ) : (
           <li></li>
         )}
-        {user?.email ? (
+        {!isAdmin ? (
           <li className="nav-link">
             <Link className="nav-link active text-white" to="/pay">
               Pay

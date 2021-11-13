@@ -5,7 +5,7 @@ import useAuth from "../Hooks/useAuth";
 const Header = () => {
   const { user, logOut } = useAuth();
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
+    <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid col-lg-12">
         <Link className="navbar-brand" to="/">
           AUTO <span className="text-warning">DEAL</span>

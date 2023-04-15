@@ -1,9 +1,9 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyAB7Rm8i5IYUHW8R3u5Tr9vN-6CKFXALn0",
-  authDomain: "final-assignment-11c2e.firebaseapp.com",
-  projectId: "final-assignment-11c2e",
-  storageBucket: "final-assignment-11c2e.appspot.com",
-  messagingSenderId: "395886004883",
-  appId: "1:395886004883:web:f56b1b1293c79848455b66"
+  apiKey: "AIzaSyDUF2TTfOzmAi5njXEsO-OZbKEq6CJwTQY",
+  authDomain: "auto-deal-client.firebaseapp.com",
+  projectId: "auto-deal-client",
+  storageBucket: "auto-deal-client.appspot.com",
+  messagingSenderId: "1099280085364",
+  appId: "1:1099280085364:web:22f8dc63d0713354357c21"
 };
 export default firebaseConfig;

@@ -23,7 +23,7 @@ https://auto-deal-server.onrender.com/
 * An admin can add and delete product, delete order, change status of orders.
 * Also admin can make another user admin if he want.
 
-* Admin login to explore
+###### Admin login to explore
 ```bash
   email: admin@gmail.com
   password: admin1234

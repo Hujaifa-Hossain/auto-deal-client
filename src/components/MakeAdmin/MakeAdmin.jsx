@@ -5,7 +5,7 @@ const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-    fetch("https://shielded-brushlands-06342.herokuapp.com/makeAdmin", {
+    fetch("https://auto-deal-server.onrender.com/api/makeAdmin", {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

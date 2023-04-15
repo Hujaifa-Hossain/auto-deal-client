@@ -4,13 +4,13 @@ const Manage = () => {
   const [manageProducts, setManageProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`https://shielded-brushlands-06342.herokuapp.com/car`)
+    fetch(`https://auto-deal-server.onrender.com/api/car`)
       .then((res) => res.json())
       .then((data) => setManageProducts(data));
   }, []);
 
   const handleCancel = (_id) => {
-    fetch(`https://shielded-brushlands-06342.herokuapp.com/car/${_id}`, {
+    fetch(`https://auto-deal-server.onrender.com/api/car/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -37,12 +37,11 @@ const Manage = () => {
             <th scope="col">Car</th>
             <th scope="col">Price</th>
             <th scope="col">Description</th>
-            <th scope="col">Cancel</th>
+            <th scope="col">Delete</th>
           </tr>
         </thead>
         <tbody>
           {manageProducts?.map((i) => {
-            // const { _id, user, email } = order;
             return (
               <tr key={i?._id}>
                 <td>{i.name}</td>
@@ -55,7 +54,7 @@ const Manage = () => {
                     onClick={() => handleCancel(i?._id)}
                     className="btn btn-warning"
                   >
-                    Cancel
+                    Delete
                   </button>
                 </td>
               </tr>

@@ -7,12 +7,11 @@ const DashBoard = () => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    fetch(
-      `https://shielded-brushlands-06342.herokuapp.com/checkAdmin/${user?.email}`
-    )
+    fetch(`https://auto-deal-server.onrender.com/api/checkAdmin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        if (data[0]?.role === "admin") {
+        // console.log(data.isAdmin)
+        if (data?.isAdmin === true) {
           setIsAdmin(true);
         } else {
           setIsAdmin(false);

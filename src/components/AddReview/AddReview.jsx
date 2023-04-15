@@ -12,7 +12,7 @@ const AddReview = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("https://shielded-brushlands-06342.herokuapp.com/reviews", {
+    fetch("https://auto-deal-server.onrender.com/api/reviews", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

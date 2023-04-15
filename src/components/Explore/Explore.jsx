@@ -4,7 +4,7 @@ import Car from "../Car/Car";
 const Explore = () => {
   const [cars, setCar] = useState([]);
   useEffect(() => {
-    fetch("https://shielded-brushlands-06342.herokuapp.com/car")
+    fetch("https://auto-deal-server.onrender.com/api/car")
       .then((res) => res.json())
       .then((data) => setCar(data));
   }, []);

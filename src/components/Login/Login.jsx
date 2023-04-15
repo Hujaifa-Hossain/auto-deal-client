@@ -10,7 +10,7 @@ const Login = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const url = location.state?.from || "/home";
+  const url = location.state?.from || "/";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -57,64 +57,46 @@ const Login = () => {
   };
 
   return (
-    <div className=" overflow-hidden">
-      <div className="row gx-5">
-        <div className="col-lg-6">
-          <div className="">
+    <div className="container overflow-hidden my-3">
+      <h5 className="text-center"><span className="text-warning">Login</span> Form</h5>
+      <div className="mx-5 d-flex justify-content-center">
+        <div>
+          <form onSubmit={handleLoginWithEmailAndPassword}>
+            <input
+              className="w-100 p-1 m-1 rounded"
+              type="email"
+              onBlur={handleGetEmail}
+              placeholder="Email"
+            />
+            <input
+              className="w-100 p-1 m-1 rounded"
+              type="password"
+              onBlur={handleGetPassword}
+              placeholder="Password"
+            />
+            <input
+              className="bg-info text-white py-2 w-100 rounded m-1"
+              type="submit"
+              value="Log In"
+            />
+          </form>
+          <p className="text-center m-1">----- Or Login With -----</p>
+
+          <button
+            className="bg-dark text-white w-100 py-2 rounded m-1"
+            onClick={handleGoogleLogin}
+          >
             <img
-              className="img-fluid"
-              src="https://image.freepik.com/free-vector/sign-concept-illustration_114360-5267.jpg"
+              className="img-fluid float-start p-1"
+              style={{ height: "40px" }}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRttcAHlykQMvm8VIF8StLe3wTztMVxFe4_eQ&usqp=CAU"
               alt=""
             />
-          </div>
-        </div>
-
-        <div className="col-lg-6">
-          <div className="my-3 d-flex justify-content-center">
-            <div>
-              <p className="my-3">Login into your account</p>
-              <form onSubmit={handleLoginWithEmailAndPassword}>
-                <input
-                  className="my-1"
-                  type="email"
-                  onBlur={handleGetEmail}
-                  placeholder="Email"
-                />
-                <br />
-                <input
-                  className="my-1"
-                  type="password"
-                  onBlur={handleGetPassword}
-                  placeholder="Password"
-                />
-                <br />
-                <input
-                  className="bg-info text-white px-3 py-1 w-100 rounded my-1"
-                  type="submit"
-                  value="Log In"
-                />
-              </form>
-              <br />
-              <p>----- Or Login With -----</p>
-
-              <button
-                className="bg-info px-3 py-1 w-100 rounded my-1"
-                onClick={handleGoogleLogin}
-              >
-                <img
-                  className="img-fluid float-start"
-                  style={{ height: "40px" }}
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRttcAHlykQMvm8VIF8StLe3wTztMVxFe4_eQ&usqp=CAU"
-                  alt=""
-                />
-                Google Sign In
-              </button>
-              <p>
-                {" "}
-                New User? <Link to="/register">Please register</Link>
-              </p>
-            </div>
-          </div>
+            Google Sign In
+          </button>
+          <p className="text-center">
+            Newbie? <Link to="/register">register here</Link>
+          </p>
         </div>
       </div>
     </div>

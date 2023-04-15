@@ -5,13 +5,13 @@ const ManageAllOrders = () => {
   const [status, setStatus] = useState("");
 
   useEffect(() => {
-    fetch(`https://shielded-brushlands-06342.herokuapp.com/orders`)
+    fetch(`https://auto-deal-server.onrender.com/api/orders`)
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, []);
 
   const handleCancel = (_id) => {
-    fetch(`https://shielded-brushlands-06342.herokuapp.com/delete/${_id}`, {
+    fetch(`https://auto-deal-server.onrender.com/api/delete/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -35,15 +35,14 @@ const ManageAllOrders = () => {
   };
   console.log(status);
   useEffect(() => {
-    fetch("https://shielded-brushlands-06342.herokuapp.com/orders")
+    fetch("https://auto-deal-server.onrender.com/api/orders")
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, []);
 
-  // const status = "apporved";
   const handleUpdate = (id) => {
     fetch(
-      `https://shielded-brushlands-06342.herokuapp.com/updateStatus/${id}`,
+      `https://auto-deal-server.onrender.com/api/updateStatus/${id}`,
       {
         method: "PUT",
         headers: { "content-type": "application/json" },

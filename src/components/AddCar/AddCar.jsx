@@ -10,7 +10,7 @@ const AddCar = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("https://shielded-brushlands-06342.herokuapp.com/addCar", {
+    fetch("https://auto-deal-server.onrender.com/api/addCar", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

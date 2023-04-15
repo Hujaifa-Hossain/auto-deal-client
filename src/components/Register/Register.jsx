@@ -13,7 +13,7 @@ const Register = () => {
 
   const history = useHistory();
   const location = useLocation();
-  const url = location.state?.from || "/home";
+  const url = location.state?.from || "/login";
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -55,7 +55,7 @@ const Register = () => {
   };
 
   const hanldeUserInfoRegister = (email) => {
-    fetch("http://localhost:5000/addUserInfo", {
+    fetch("https://auto-deal-server.onrender.com/api/addUser", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ email }),
@@ -79,68 +79,64 @@ const Register = () => {
 
   return (
     <div className="overflow-hidden">
-      <div className="row gx-5">
+      <h5 className="text-center">
+        <span className="text-warning">Registration</span> Form
+      </h5>
+
+      <div className="row gx-5 my-4">
         <div className="col-lg-6">
-          <div className="my-3 d-flex justify-content-center">
+          <div className="mx-5 d-flex justify-content-center">
             <div>
-              <p className="my-3">Please Register first</p>
               <form onSubmit={handleRegistration}>
                 <input
-                  className="my-1"
+                  className="w-100 p-1 m-1 rounded"
                   type="text"
                   onBlur={handleGetName}
                   placeholder="name"
-                />{" "}
-                <br />
+                />
                 <input
-                  className="my-1"
+                  className="w-100 p-1 m-1 rounded"
                   type="email"
                   onBlur={handleGetEmail}
                   placeholder="email"
-                />{" "}
-                <br />
+                />
                 <input
-                  className="my-1"
+                  className="w-100 m-1 p-1 rounded"
                   type="password"
                   onBlur={handleGetPassword}
                   placeholder="password"
-                />{" "}
-                <br />
+                />
+
                 <input
-                  className="bg-info text-white px-3 py-1 w-100 rounded my-1"
+                  className="bg-info text-white py-2 w-100 rounded m-1"
                   type="submit"
                   placeholder="create"
                 />
               </form>
-              <p>----- Or Register With -----</p>
-
+              <p className="text-center m-1">---------- Or ----------</p>
               <button
-                className="bg-info px-3 py-1 w-100 rounded my-1"
+                className="bg-dark text-white w-100 py-2 rounded m-1"
                 onClick={handleGoogleLogin}
               >
                 <img
-                  className="img-fluid float-start"
+                  className="img-fluid float-start p-1"
                   style={{ height: "40px" }}
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRttcAHlykQMvm8VIF8StLe3wTztMVxFe4_eQ&usqp=CAU"
                   alt=""
                 />
-                Google Sign In
+                Sign Up with Google
               </button>
-
-              {/* <button onClick={handleGoogleLogin}>Google Sign In</button> */}
-              <p>
-                {" "}
-                Signed Up? <Link to="/login">Please Login</Link>
+              <p className="text-center">
+                Already in? <Link to="/login">login here</Link>
               </p>
-              <br />
-              <p className="text-info">
-                Note: Please login after <br /> successful registration
+              <p className="text-warning text-center">
+                Note: Please login after successful registration
               </p>
             </div>
           </div>
         </div>
         <div className="col-lg-6">
-          <div className="">
+          <div>
             <img
               className="img-fluid"
               src="https://image.freepik.com/free-vector/secure-login-concept-illustration_114360-4685.jpg"

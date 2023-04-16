@@ -34,9 +34,9 @@ const Manage = () => {
       <table className="table container table-dark table-stripe">
         <thead className="mx-auto">
           <tr>
+            <th scope="col">Image</th>
             <th scope="col">Car</th>
             <th scope="col">Price</th>
-            <th scope="col">Description</th>
             <th scope="col">Delete</th>
           </tr>
         </thead>
@@ -44,15 +44,16 @@ const Manage = () => {
           {manageProducts?.map((i) => {
             return (
               <tr key={i?._id}>
+                <td><img className="rounded" style={{width: '50px'}} src={i?.image} alt="" /></td>
+
                 <td>{i.name}</td>
 
                 <td>${i?.price}</td>
-                <td>{i?.description.slice(0, 30)}</td>
 
                 <td>
                   <button
                     onClick={() => handleCancel(i?._id)}
-                    className="btn btn-warning"
+                    className="btn btn-warning py-1"
                   >
                     Delete
                   </button>

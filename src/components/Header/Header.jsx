@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid col-lg-12">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand fw-bold" to="/">
           AUTO <span className="text-warning">DEAL</span>
         </Link>
         <button

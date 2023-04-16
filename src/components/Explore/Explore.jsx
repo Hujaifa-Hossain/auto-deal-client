@@ -10,7 +10,7 @@ const Explore = () => {
   }, []);
   return (
     <div>
-      <h3 className="text-center my-3">Explore {cars.length} Best Cars</h3>
+      <h3 className="text-center my-3">Explore {cars.length} Best <span className="text-warning">Cars</span></h3>
       <div className="cars-container">
         {cars.map((car) => (
           <Car key={car._id} car={car}></Car>
